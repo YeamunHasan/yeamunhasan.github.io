@@ -171,6 +171,17 @@
   }
 }
 
+/* "+" after an animated counter, e.g. 200+ */
+.ftco-counter .text strong.number.has-plus {
+  display: inline-block;
+}
+.ftco-counter .text strong.counter-plus {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffbd39;
+}
+
 /* Equal-height resume boxes in each row */
 .resume-part .row > [class*="col-"]:not(.heading-section):not(.text-center) {
   display: flex;
@@ -1207,7 +1218,7 @@
           <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text">
-                <strong class="number" data-number="200">0</strong>
+                <strong class="number has-plus" data-number="200">0</strong><strong class="counter-plus">+</strong>
                 <span>Students Trained</span>
               </div>
             </div>
