@@ -111,6 +111,66 @@
 }
 
 
+/* Resume dropdown in the top navigation */
+.nav-item.has-sub {
+  position: relative;
+}
+.sub-caret {
+  margin-left: 5px;
+  font-size: 11px;
+  font-style: normal;
+}
+.nav-sub {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 250px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: #000000;
+  border: 1px solid #222222;
+  border-top: 2px solid #ffbd39;
+  border-radius: 0 0 5px 5px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.25s ease;
+}
+.nav-item.has-sub:hover .nav-sub,
+.nav-item.has-sub:focus-within .nav-sub {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.nav-sub a {
+  display: block;
+  padding: 8px 20px;
+  color: #cccccc;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-sub a:hover {
+  color: #ffbd39;
+  background: #111111;
+}
+@media (max-width: 991.98px) {
+  .nav-sub {
+    position: static;
+    min-width: 0;
+    padding: 0 0 12px 15px;
+    background: transparent;
+    border: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .nav-sub a {
+    padding: 5px 0;
+  }
+}
+
 /* Equal-height resume boxes in each row */
 .resume-part .row > [class*="col-"]:not(.heading-section):not(.text-center) {
   display: flex;
@@ -253,7 +313,16 @@
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
 	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+	          <li class="nav-item has-sub">
+	            <a href="#resume-section" class="nav-link"><span>Resume</span><i class="sub-caret" aria-hidden="true">&#9662;</i></a>
+	            <ul class="nav-sub">
+	              <li><a href="#research-section">Research Experience</a></li>
+	              <li><a href="#experience-section">Professional Experience</a></li>
+	              <li><a href="#publications-section">Publications &amp; Presentations</a></li>
+	              <li><a href="#awards-section">Honours, Awards &amp; Training</a></li>
+	              <li><a href="#education-section">Education</a></li>
+	            </ul>
+	          </li>
 	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
 	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
 	        </ul>
@@ -1253,6 +1322,13 @@
   
   <script src="js/main.js"></script>
   <script>
+    // Close the collapsed mobile menu after a menu link is chosen
+    $('#ftco-nav').on('click', 'a[href^="#"]', function () {
+      if ($('.navbar-toggler').is(':visible')) {
+        $('#ftco-nav').collapse('hide');
+      }
+    });
+
     // Smooth-scroll in-page buttons (e.g. "My works") like the navbar links
     $(document).on('click', '.js-scroll-link', function (e) {
       var $target = $($.attr(this, 'href'));
