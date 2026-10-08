@@ -722,10 +722,32 @@
           <div class="col-md-8 heading-section text-center ftco-animate">
             <h1 class="big big-2">Projects</h1>
             <h2 class="mb-4">GIS &amp; Spatial Analysis Projects</h2>
-            <p>Applied geospatial projects in ArcGIS and QGIS covering infrastructure impact, flood and climate hazards, groundwater, hydrology, transport networks, public health and satellite remote sensing. Click any project to view its maps or videos.</p>
+            <p>Applied geospatial projects in ArcGIS and QGIS covering infrastructure impact, flood and climate hazards, groundwater, hydrology, transport networks, public health and satellite remote sensing. Click any project to view its maps, videos or live web maps.</p>
           </div>
         </div>
         <div class="row">
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card video-playlist" data-embed="https://umap.hotosm.org/en/map/flood-vulnerability-index-map_3442#11/25.049055/91.087990">
+              <a href="https://umap.hotosm.org/en/map/flood-vulnerability-index-map_3442#11/25.049055/91.087990" class="gis-card-img gis-card-video" title="Sunamganj Flood Vulnerability and Early-Warning Priority Map">
+                <img src="images/projects/sunamganj-flood-vulnerability.jpg" alt="Sunamganj Flood Vulnerability and Early-Warning Priority Map" loading="lazy">
+              </a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Flood Risk · Interactive Web Map</span>
+                <h3>Sunamganj Flood Vulnerability &amp; Early-Warning Priority Map</h3>
+                <p>An interactive web map guiding flood preparedness planning across the 13 unions of Tahirpur and Dharmapasha Upazilas in the Sunamganj haor region, prepared in cooperation with World Vision Bangladesh with technical support from the HOTOSM Open Mapping Hub Asia-Pacific.</p>
+                <ul class="gis-card-hl">
+                  <li>Flood Vulnerability Index (FVI) and Early-Warning Priority Index (EWPI) for each union</li>
+                  <li>Built from community survey data and Sentinel-1 satellite imagery analysis</li>
+                  <li>Accounts for haor flood patterns, social and physical vulnerability, coping capacity, and access to early warning and evacuation routes</li>
+                  <li>Identifies priority unions for intervention and further support</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>Sentinel-1</span><span>Survey data</span><span>uMap</span></div>
+                  <a href="https://umap.hotosm.org/en/map/flood-vulnerability-index-map_3442#11/25.049055/91.087990" class="gis-view" target="_blank" rel="noopener">Open live map &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="col-md-6 col-lg-4 d-flex ftco-animate">
             <div class="gis-card video-playlist" data-embed="https://www.youtube.com/embed/videoseries?list=PL8CS0IkciXsA8iP-AOFtpd3AwlNJKKiCU">
               <a href="https://www.youtube.com/playlist?list=PL8CS0IkciXsA8iP-AOFtpd3AwlNJKKiCU" class="gis-card-img gis-card-video" title="MCE Case Study – Kathmandu Valley with TerrSet">
@@ -1219,7 +1241,7 @@
       $('html, body').animate({ scrollTop: $target.offset().top - 70 }, 500);
     });
 
-    // Play a project's YouTube playlist in a popup (the "Watch" link still opens YouTube)
+    // Open a project's YouTube playlist or web map in a popup (the card's footer link still opens it in a new tab)
     $('.video-playlist .gis-card-video').on('click', function (e) {
       e.preventDefault();
       $.magnificPopup.open({
