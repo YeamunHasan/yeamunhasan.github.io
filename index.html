@@ -111,6 +111,98 @@
 }
 
 
+/* GIS project cards */
+.gis-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 30px;
+  background: #111111;
+  border: 1px solid #222222;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.gis-card:hover {
+  border-color: #ffbd39;
+  transform: translateY(-4px);
+}
+.gis-card-img {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #ffffff;
+}
+.gis-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-out;
+}
+.gis-card:hover .gis-card-img img {
+  transform: scale(1.06);
+}
+.gis-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 22px 22px;
+}
+.gis-card-cat {
+  color: #ffbd39;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.gis-card-body h3 {
+  margin: 6px 0 10px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.gis-card-body p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.gis-card-hl {
+  margin: 0 0 16px;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.gis-card-hl li::marker {
+  color: #ffbd39;
+}
+.gis-card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+}
+.gis-tools span {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 9px;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  color: #cccccc;
+  font-size: 11px;
+}
+.gis-view {
+  color: #ffbd39;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.gis-view:hover {
+  color: #ffffff;
+}
+
 </style>
 
 
@@ -441,78 +533,258 @@
 
    
 
-    <!-- <section class="ftco-section" id="project-section">
+    <section class="ftco-section" id="project-section">
       <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-8 heading-section text-center ftco-animate">
             <h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Projects</h2>
-            <p>Below are the sample Data Analytics projects on SQL, Python, Power BI & ML.</p>
+            <h2 class="mb-4">GIS &amp; Spatial Analysis Projects</h2>
+            <p>Applied geospatial projects in ArcGIS and QGIS covering infrastructure impact, flood and climate hazards, groundwater, hydrology, transport networks, public health and satellite remote sensing. Click any project to view its maps.</p>
           </div>
         </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="https://github.com/rishabhnmishra/SQL_Music_Store_Analysis/blob/main/Music_Store_Query.sql" class="block-20 zoom-effect" style="background-image: url('images/proj_1.jpg');">
+        <div class="row">
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/civil-structures.jpg" class="gis-card-img" title="Road Widening Impact Assessment — Khulna">
+                <img src="images/projects/civil-structures-thumb.jpg" alt="Road Widening Impact Assessment — Khulna" loading="lazy">
               </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/rishabhnmishra/SQL_Music_Store_Analysis/blob/main/Music_Store_Query.sql">Digital Music Store Data Analysis using SQL</a></h3>
-                <p>Analyzed music store data using advanced SQL queires to identify gaps and increase the business growth.</p>
+              <a href="images/projects/civil-plots.jpg" title="Road Widening Impact Assessment — Khulna" hidden></a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Civil Engineering</span>
+                <h3>Road Widening Impact Assessment — Khulna</h3>
+                <p>Identified buildings and cadastral plots within 1 m of a proposed road in Ward 31, Khulna City Corporation, using buffer and overlay analysis.</p>
+                <ul class="gis-card-hl">
+                  <li>127 structures affected (50 semi-pucca, 48 katcha, 29 pucca), 11,819 m² footprint</li>
+                  <li>60% of affected structures are commercial</li>
+                  <li>76 plots affected, 52,094 m² (5.21 ha): Labanchora 70 plots, Tutpara 6 plots</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>ArcGIS</span><span>QGIS</span></div>
+                  <a href="images/projects/civil-structures.jpg" class="gis-view">View 2 maps &rarr;</a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="https://github.com/rishabhnmishra/Python_Diwali_Sales_Analysis/blob/main/Diwali_Sales_Analysis.ipynb" class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpg');">
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/flooding-analysis.webp" class="gis-card-img" title="Sea-Level-Rise Flood Inundation — Kuakata">
+                <img src="images/projects/flooding-analysis-thumb.jpg" alt="Sea-Level-Rise Flood Inundation — Kuakata" loading="lazy">
               </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/rishabhnmishra/Python_Diwali_Sales_Analysis/blob/main/Diwali_Sales_Analysis.ipynb">Data Analysis using Python Project for Beginners</a></h3>
-                <p>Performed exploratory data analysis on diwali sales data using Python to improve the customer experience.</p>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Climate Risk</span>
+                <h3>Sea-Level-Rise Flood Inundation — Kuakata</h3>
+                <p>Modelled the land flooded by a 1.5 m sea-level rise in Kuakata municipality from a DEM, shown in 2D and as a 3D animation.</p>
+                <ul class="gis-card-hl">
+                  <li>≈3.8 km² of 11.1 km² (≈34%) at or below 1.5 m</li>
+                  <li>3D ArcScene flood animation</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>ArcGIS</span><span>ArcScene</span><span>QGIS</span></div>
+                  <a href="images/projects/flooding-analysis.webp" class="gis-view">View animation &rarr;</a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry">
-              <a href="https://github.com/rishabhnmishra/Madhav_Store_Analysis_PowerBI/blob/main/Madhav%20Store%20dashboard.jpg" class="block-20 zoom-effect" style="background-image: url('images/proj_3.jpg');">
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/groundwater-study-area.jpg" class="gis-card-img" title="Groundwater Level Modelling &amp; Land Use — Khulna">
+                <img src="images/projects/groundwater-change-thumb.jpg" alt="Groundwater Level Modelling &amp; Land Use — Khulna" loading="lazy">
               </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/rishabhnmishra/Madhav_Store_Analysis_PowerBI/blob/main/Madhav%20Store%20dashboard.jpg">Power BI Sales dashboard Project for Beginners</a></h3>
-                <p>Designed a power bi dashboard for Madhav Store to track and analyze the online sales data acorss India.</p>
+              <a href="images/projects/groundwater-gwl.jpg" title="Groundwater Level Modelling &amp; Land Use — Khulna" hidden></a>
+              <a href="images/projects/groundwater-change.jpg" title="Groundwater Level Modelling &amp; Land Use — Khulna" hidden></a>
+              <a href="images/projects/groundwater-landuse.jpg" title="Groundwater Level Modelling &amp; Land Use — Khulna" hidden></a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Hydrogeology</span>
+                <h3>Groundwater Level Modelling &amp; Land Use — Khulna</h3>
+                <p>Interpolated depth to groundwater for 2000, 2010 and 2015 from 42 DPHE wells (IDW tuned by cross-validation) and tested its relationship with land use.</p>
+                <ul class="gis-card-hl">
+                  <li>Average decline of 6.6 m from 2000 to 2015 (≈0.44 m/yr)</li>
+                  <li>81% of the area declined by more than 4 m</li>
+                  <li>Weak link with built-up land (r = 0.28), pointing to regional over-abstraction</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>QGIS</span><span>PyQGIS</span></div>
+                  <a href="images/projects/groundwater-study-area.jpg" class="gis-view">View 4 maps &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/hailstorm.jpg" class="gis-card-img" title="Hailstorm Frequency Modelling — Bangladesh">
+                <img src="images/projects/hailstorm-thumb.jpg" alt="Hailstorm Frequency Modelling — Bangladesh" loading="lazy">
+              </a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Climate Hazard</span>
+                <h3>Hailstorm Frequency Modelling — Bangladesh</h3>
+                <p>Produced a national hailstorm hazard surface from 35 BMD stations using Ordinary Kriging, with IDW for comparison.</p>
+                <ul class="gis-card-hl">
+                  <li>Hotspot in the north-west: Syedpur 126, Dinajpur 86</li>
+                  <li>Below 20 in the south-west coastal belt</li>
+                  <li>Local coastal high at Hatiya (114)</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>ArcGIS</span><span>QGIS</span></div>
+                  <a href="images/projects/hailstorm.jpg" class="gis-view">View map &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/cholera.jpg" class="gis-card-img" title="John Snow&#x27;s 1854 Cholera Outbreak">
+                <img src="images/projects/cholera-thumb.jpg" alt="John Snow&#x27;s 1854 Cholera Outbreak" loading="lazy">
+              </a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Public Health</span>
+                <h3>John Snow&#x27;s 1854 Cholera Outbreak</h3>
+                <p>Re-analysed the Broad Street outbreak with proportional symbols, mean centre, standard deviational ellipse, Thiessen polygons and kernel density.</p>
+                <ul class="gis-card-hl">
+                  <li>578 deaths across 52 streets</li>
+                  <li>Broad Street: 93 deaths (16.1%), twice as many as any other street</li>
+                  <li>Death cluster centred on the Broad Street pump</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>QGIS</span></div>
+                  <a href="images/projects/cholera.jpg" class="gis-view">View map &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/network-combined.jpg" class="gis-card-img" title="Bus-Stop Network Analysis — Dhaka">
+                <img src="images/projects/network-combined-thumb.jpg" alt="Bus-Stop Network Analysis — Dhaka" loading="lazy">
+              </a>
+              <a href="images/projects/network-1-shortest-route.jpg" title="Bus-Stop Network Analysis — Dhaka" hidden></a>
+              <a href="images/projects/network-2-tsp-route.jpg" title="Bus-Stop Network Analysis — Dhaka" hidden></a>
+              <a href="images/projects/network-3-closest-stops.jpg" title="Bus-Stop Network Analysis — Dhaka" hidden></a>
+              <a href="images/projects/network-4-service-area.jpg" title="Bus-Stop Network Analysis — Dhaka" hidden></a>
+              <a href="images/projects/network-5-od-matrix.jpg" title="Bus-Stop Network Analysis — Dhaka" hidden></a>
+              <a href="images/projects/network-6-residential-nearest-stops.jpg" title="Bus-Stop Network Analysis — Dhaka" hidden></a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Transport Planning</span>
+                <h3>Bus-Stop Network Analysis — Dhaka</h3>
+                <p>Six network analyses on Dhaka&#x27;s road network: shortest path, TSP across 93 stops, closest facility, 400 m service area, OD matrix and nearest stop.</p>
+                <ul class="gis-card-hl">
+                  <li>TSP tour of all 93 stops: 106.42 km</li>
+                  <li>Only 7.7% of the city lies within a 400 m walk of a stop</li>
+                  <li>Shortest route from Stop 1 to Stop 11: 17.48 km</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>QGIS</span></div>
+                  <a href="images/projects/network-combined.jpg" class="gis-view">View 7 maps &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/watershed.jpg" class="gis-card-img" title="Watershed Analysis — Dhaka (DMDP)">
+                <img src="images/projects/watershed-thumb.jpg" alt="Watershed Analysis — Dhaka (DMDP)" loading="lazy">
+              </a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Hydrology</span>
+                <h3>Watershed Analysis — Dhaka (DMDP)</h3>
+                <p>Full ArcHydro workflow from Fill Sink to Drainage Point, followed by Strahler stream order and basin delineation.</p>
+                <ul class="gis-card-hl">
+                  <li>93 catchments, 15 drainage basins (2,632 km²)</li>
+                  <li>Stream orders 1–4, totalling 513 km</li>
+                  <li>Largest basin: 1,650 km² draining central Dhaka</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>ArcGIS</span><span>ArcHydro</span><span>QGIS</span></div>
+                  <a href="images/projects/watershed.jpg" class="gis-view">View map &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/facebook.jpg" class="gis-card-img" title="Global Facebook Penetration, 2019">
+                <img src="images/projects/facebook-thumb.jpg" alt="Global Facebook Penetration, 2019" loading="lazy">
+              </a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Thematic Cartography</span>
+                <h3>Global Facebook Penetration, 2019</h3>
+                <p>Calculated Facebook users as a share of population for 208 countries and mapped it as a choropleth on the Robinson projection.</p>
+                <ul class="gis-card-hl">
+                  <li>Global average ≈28% (2.17 billion users)</li>
+                  <li>Highest: Kuwait 97%, Brunei 92%, UAE 89%</li>
+                  <li>Below 20% across most of Africa, South Asia and China</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>QGIS</span></div>
+                  <a href="images/projects/facebook.jpg" class="gis-view">View map &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/dhaka-airport-ndbi.jpg" class="gis-card-img" title="Urban Expansion Around Shahjalal International Airport, Dhaka (2000–2025)">
+                <img src="images/projects/dhaka-airport-ndbi-thumb.jpg" alt="Urban Expansion Around Shahjalal International Airport, Dhaka (2000–2025)" loading="lazy">
+              </a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Remote Sensing</span>
+                <h3>Urban Expansion Around Shahjalal International Airport, Dhaka (2000–2025)</h3>
+                <p>Built-up land around Dhaka&#x27;s main airport in 2000 and 2025, mapped with the Normalized Difference Built-up Index (NDBI).</p>
+                <ul class="gis-card-hl">
+                  <li>Two-date NDBI comparison over 25 years</li>
+                  <li>Open land west, south-west and east of the airport largely built over by 2025</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>ArcGIS</span></div>
+                  <a href="images/projects/dhaka-airport-ndbi.jpg" class="gis-view">View map &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/rajshahi-ndvi.jpg" class="gis-card-img" title="Vegetation and Land-Cover Mapping of Rajshahi City Corporation (NDVI)">
+                <img src="images/projects/rajshahi-ndvi-thumb.jpg" alt="Vegetation and Land-Cover Mapping of Rajshahi City Corporation (NDVI)" loading="lazy">
+              </a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Remote Sensing</span>
+                <h3>Vegetation and Land-Cover Mapping of Rajshahi City Corporation (NDVI)</h3>
+                <p>NDVI from satellite imagery, classified into water, built-up, barren land, shrub and grassland, sparse vegetation and dense vegetation.</p>
+                <ul class="gis-card-hl">
+                  <li>Six NDVI classes</li>
+                  <li>Built-up and barren city core along the Padma River</li>
+                  <li>Vegetation concentrated on the city&#x27;s edges</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>ArcGIS</span></div>
+                  <a href="images/projects/rajshahi-ndvi.jpg" class="gis-view">View map &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card project-gallery">
+              <a href="images/projects/southern-leyte-landcover.jpg" class="gis-card-img" title="Land Cover Mapping and Area Statistics — Southern Leyte, Philippines (2020)">
+                <img src="images/projects/southern-leyte-landcover-thumb.jpg" alt="Land Cover Mapping and Area Statistics — Southern Leyte, Philippines (2020)" loading="lazy">
+              </a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Land Cover</span>
+                <h3>Land Cover Mapping and Area Statistics — Southern Leyte, Philippines (2020)</h3>
+                <p>Mapped 11 land-cover classes for Southern Leyte province in 2020, with area statistics for each class.</p>
+                <ul class="gis-card-hl">
+                  <li>1,417 km² mapped</li>
+                  <li>Perennial crops: 57.3%; brush and shrubs: 27.4%</li>
+                  <li>Built-up land: 3.0%; closed forest: 2.9%</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>ArcGIS</span></div>
+                  <a href="images/projects/southern-leyte-landcover.jpg" class="gis-view">View map &rarr;</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-	<br>
-		<!-- added justify-content-center to center align the last two projects -->
-		<!-- <div class="row d-flex justify-content-center">  
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main">Sales Forecast- Time Series Forecasting</a></h3>
-				  <p>Used multiple machine learning models to forecast sales (retail store) and performed time series analysis.</p>
-				</div>
-			  </div>
-			</div>
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb" class="block-20 zoom-effect" style="background-image: url('images/proj_5.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb">Customer Segmentation using clustering model</a></h3>
-				  <p>Developed a ML model to give various recommendations of financial products &amp; services on target customer groups.</p>
-				</div>
-			  </div>
-			</div>
-		 </div>
-	  </div>
-    </section> --> -->
+      </div>
+    </section>
 
 	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
       <div class="container">
@@ -712,6 +984,21 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
+  <script>
+    // Open each project's maps as a lightbox gallery
+    $('.project-gallery').each(function () {
+      var $links = $(this).find('a[href^="images/projects/"]').not('.gis-view');
+      $(this).find('.gis-card-img, .gis-view').on('click', function (e) {
+        e.preventDefault();
+        $.magnificPopup.open({
+          items: $links.map(function () { return { src: this.href, title: this.title }; }).get(),
+          type: 'image',
+          gallery: { enabled: true },
+          image: { verticalFit: true }
+        }, 0);
+      });
+    });
+  </script>
     
   </body>
 </html>
