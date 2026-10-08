@@ -284,7 +284,8 @@
 						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
 						<!-- <br> -->
 			            <p><a href="https://www.youtube.com/@geox_solution" class="btn btn-primary py-3 px-4">YouTube</a> 
-							<a href="#project-section" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+							<a href="#project-section" class="btn btn-white btn-outline-white py-3 px-4 js-scroll-link">My works</a>
+							<a href="https://www.linkedin.com/in/yeamunhasansoumick/" class="btn btn-white btn-outline-white py-3 px-4" target="_blank" rel="noopener">LinkedIn</a></p>
 		            </div>
 		          </div>
 	        	</div>
@@ -992,6 +993,14 @@
   
   <script src="js/main.js"></script>
   <script>
+    // Smooth-scroll in-page buttons (e.g. "My works") like the navbar links
+    $(document).on('click', '.js-scroll-link', function (e) {
+      var $target = $($.attr(this, 'href'));
+      if (!$target.length) return;
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: $target.offset().top - 70 }, 500);
+    });
+
     // Open each project's maps as a lightbox gallery
     $('.project-gallery').each(function () {
       var $links = $(this).find('a[href^="images/projects/"]').not('.gis-view');
