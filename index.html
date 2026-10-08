@@ -199,6 +199,29 @@
   font-weight: 600;
   white-space: nowrap;
 }
+.gis-card-video {
+  position: relative;
+}
+.gis-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffbd39;
+  font-size: 24px;
+  line-height: 60px;
+  text-align: center;
+  padding-left: 4px;
+  transition: background 0.3s ease;
+}
+.gis-card:hover .gis-play {
+  background: #ffbd39;
+  color: #000000;
+}
 .gis-view:hover {
   color: #ffffff;
 }
@@ -682,10 +705,32 @@
           <div class="col-md-8 heading-section text-center ftco-animate">
             <h1 class="big big-2">Projects</h1>
             <h2 class="mb-4">GIS &amp; Spatial Analysis Projects</h2>
-            <p>Applied geospatial projects in ArcGIS and QGIS covering infrastructure impact, flood and climate hazards, groundwater, hydrology, transport networks, public health and satellite remote sensing. Click any project to view its maps.</p>
+            <p>Applied geospatial projects in ArcGIS and QGIS covering infrastructure impact, flood and climate hazards, groundwater, hydrology, transport networks, public health and satellite remote sensing. Click any project to view its maps or videos.</p>
           </div>
         </div>
         <div class="row">
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
+            <div class="gis-card video-playlist" data-embed="https://www.youtube.com/embed/videoseries?list=PL8CS0IkciXsA8iP-AOFtpd3AwlNJKKiCU">
+              <a href="https://www.youtube.com/playlist?list=PL8CS0IkciXsA8iP-AOFtpd3AwlNJKKiCU" class="gis-card-img gis-card-video" title="MCE Case Study – Kathmandu Valley with TerrSet">
+                <img src="images/projects/kathmandu-mce-terrset.jpg" alt="MCE Case Study – Kathmandu Valley with TerrSet" loading="lazy">
+                <span class="gis-play" aria-hidden="true">&#9654;</span>
+              </a>
+              <div class="gis-card-body">
+                <span class="gis-card-cat">Suitability Analysis · Video Series</span>
+                <h3>MCE Case Study – Kathmandu Valley with TerrSet</h3>
+                <p>A four-part YouTube tutorial on multi-criteria evaluation (MCE) for land-use planning, allocating land between agriculture and the carpet industry in Kathmandu Valley.</p>
+                <ul class="gis-card-hl">
+                  <li>Multi-objective, multi-criteria decision making with land use, roads, DEM, rivers and markets</li>
+                  <li>Constraints map, factor maps and factor weighting</li>
+                  <li>Running the MCE to produce suitability maps</li>
+                </ul>
+                <div class="gis-card-foot">
+                  <div class="gis-tools"><span>TerrSet</span><span>YouTube</span></div>
+                  <a href="https://www.youtube.com/playlist?list=PL8CS0IkciXsA8iP-AOFtpd3AwlNJKKiCU" class="gis-view" target="_blank" rel="noopener">Watch 4 videos &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="col-md-6 col-lg-4 d-flex ftco-animate">
             <div class="gis-card project-gallery">
               <a href="images/projects/civil-structures.jpg" class="gis-card-img" title="Road Widening Impact Assessment — Khulna">
@@ -1133,6 +1178,15 @@
       if (!$target.length) return;
       e.preventDefault();
       $('html, body').animate({ scrollTop: $target.offset().top - 70 }, 500);
+    });
+
+    // Play a project's YouTube playlist in a popup (the "Watch" link still opens YouTube)
+    $('.video-playlist .gis-card-video').on('click', function (e) {
+      e.preventDefault();
+      $.magnificPopup.open({
+        items: { src: $(this).closest('.video-playlist').data('embed') },
+        type: 'iframe'
+      });
     });
 
     // Open each project's maps as a lightbox gallery
